@@ -55,7 +55,7 @@ def client_download(request, pk):
             writer.writerow(['first_name', 'last_name', 'document' ,'quantity'])
 
             for client in Client.objects.all():
-                bills = Bill.objects.filter(client_id = pk)
+                bills = Bill.objects.get(client_id = pk)
                 count = bills.count()
         
                 row = [client.first_name, client.last_name, client.document, count]
